@@ -1,0 +1,9 @@
+version: '1.0'
+
+services:
+  weather-service:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      UV_CACHE_DIR: /app/.uv
