@@ -7,11 +7,11 @@ RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
 # 创建工作目录
 WORKDIR /app
 
-# 拷贝 pyproject.toml 和 uv.lock 提前安装依赖
-COPY pyproject.toml uv.lock ./
+# 拷贝 pyproject.toml 提前安装依赖
+COPY pyproject.toml ./
 
 # 使用锁文件安装所有依赖
-RUN uv pip install --frozen
+RUN uv install
 
 # 拷贝其他项目文件
 COPY . .
