@@ -10,8 +10,8 @@ WORKDIR /app
 # 拷贝 pyproject.toml 和 uv.lock 提前安装依赖
 COPY pyproject.toml uv.lock ./
 
-# 安装依赖（使用 uv.lock）
-RUN uv pip install -r uv.lock
+# 使用锁文件安装所有依赖
+RUN uv pip install --frozen
 
 # 拷贝其他项目文件
 COPY . .
