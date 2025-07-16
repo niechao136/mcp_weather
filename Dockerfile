@@ -11,7 +11,7 @@ WORKDIR /app
 COPY pyproject.toml ./
 
 # 使用锁文件安装所有依赖
-RUN uv install
+RUN uv pip install
 
 # 拷贝其他项目文件
 COPY . .
