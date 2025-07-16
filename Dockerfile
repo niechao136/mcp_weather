@@ -1,7 +1,8 @@
 FROM python:3.10-slim
 
-# 安装 uv（使用官方 pip 安装）
-RUN pip install uv
+# 设置国内源 + 安装 uv
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
+ && pip install uv
 
 # 创建工作目录
 WORKDIR /app
